@@ -157,10 +157,14 @@ Verify metrics:
 On Windows Server 2022:
 
 * Enable Event Log monitoring via Zabbix Agent
+ <p align="center">
+  <img src="eventlog.png" width="800">
+ </p>
 * Monitor:
-
-  * Security Log
-
+  * Security Log:
+  <p align="center">
+<img src="eventvier.png" width+"800">
+  </p>
 Filter:
 
 * Event ID: **4625 (Failed Login)**
