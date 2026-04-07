@@ -191,8 +191,7 @@ Security Log:
 <img src="images/eventviewer.png" width="800">
   </p>
 Filter:
- Event ID: 4625 (failed Login)
-
+ * Event ID: 4625 (failed Login)
 <p align="center">
  <img src="images/4625.png" width="800">
 </p>
@@ -206,7 +205,7 @@ Create trigger conditions:
 <p align="center">
  <img src="images/createconditionfromtrigger.png" width="800">
 </p>
-Create item:
+Create items:
 <p align="center">
  <img src="images/createitem.png" width="800">
 </p>
@@ -227,7 +226,7 @@ Create item:
 ### Step 2: Configure in Zabbix
 
 * Go to: Administration → Media types
-* Create new media type:
+* Create a new media type:
   * Type: Webhook
   * Paste Discord Webhook URL
 <p align="center">
