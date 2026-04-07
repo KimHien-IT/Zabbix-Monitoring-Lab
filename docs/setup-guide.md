@@ -199,7 +199,9 @@ Create item:
 
 * Go to Discord → Server Settings → Integrations → Webhooks
 * Copy Webhook URL
-
+<p align="center">
+ <img src="images/webhook.png" width="800">
+</p>
 ---
 
 ### Step 2: Configure in Zabbix
