@@ -51,30 +51,54 @@ Window 10 ping to Centos 9 and Windows Server 2022:
 
 ## 3. Install Zabbix Server (CentOS 9)
 
-Install Zabbix repository:
+**Install Zabbix repository:**
 * rpm -Uvh https://repo.zabbix.com/zabbix/7.0/centos/9/x86_64/zabbix-release-latest-7.0.el9.noarch.rpm
 
-Install packages:
+**Install packages:**
 * dnf install zabbix-server-mysql zabbix-web-mysql zabbix-nginx-conf zabbix-sql-scripts zabbix-selinux-policy zabbix-agent 
 
-Setup database (MariaDB):
+**Setup database (MariaDB):**
 * mysql-uroot -p
 * password
   * mysql> create database zabbix character set utf8mb4 collate utf8mb4_bin;
   * mysql> create user zabbix-sql@localhost identified by 'sql';
-  * mysql> grant all privileges on zabbix.* to zabbix@localhost;
+  * mysql> grant all privileges on zabbix.* to zabbix-sql@localhost;
   * mysql> set global log_bin_trust_function_creators = 1;
   * mysql> quit; 
 * Configure /etc/zabbix/zabbix_server.conf`
+  * DBUser=zabbix-sql
+  * DBPassword=sql
+    
+**Start services:**
 
-Start services:
-  * zabbix-server: 
-systemctl start Zabbix-server
-  * zabbix-agent: 
-systemctl start zabbix-agent
+zabbix-server: 
+* systemctl start zabbix-server
+* systemctl enable zabbix-server
 
-  * httpd / nginx
-
+zabbix-agent: 
+* systemctl start zabbix-agent
+* systemctl enable zabbix-agent
+  
+Nginx:
+* systemctl start nginx
+* systemctl enable nginx
+  
+MariaDB:
+* systemctl start mariadb
+* systemctl enable mariadb
+  
+**Open port Firewall:**
+* firewall-cmd --add-port=10051/tcp --permanent
+* firewall-cmd --add-port=10050/tcp --permanent
+* firewall-cmd --add-service=http --permanent
+* firewall-cmd --reload
+  
+**Install SElinux policy**
+* dnf install -y zabbix-selinux-policy
+* setsebool -P zabbix_can_network on
+* setsebool -P httpd_can_connect_zabbix on
+* setsebool -P zabbix_can_network_connect_db on
+  
 Access Web UI: "http://192.168.10.10\
 <p align="center">
   <img src="images/zabbixsetup.png" width="800">
@@ -139,17 +163,22 @@ Hostname=WIN SERVER-2022
 
 ---
 
-## 6. Basic Monitoring
+## 6. Monitoring
+Basic monitoring:
+<p align="center">
+ <img src="images/dashboard.png" width="800">
+</p>
 
-Verify metrics:
+Custom monitoring:
+<p align="center">
+ <img src="images/dashboard.png" width="800">
+</p>
 
+Important value
 * CPU usage
 * Memory usage
 * Disk usage
 * Network traffic
-<p align="center">
- <img src="images/dashboard.png" width="800">
-</p>
 ---
 
 ## 7. Configure Windows Event Log Monitoring
@@ -239,8 +268,13 @@ Create action:
  <img src="images/servertest.png" width="800">
 </p>
   * Trigger activated
+<p align="center">
+ <img src="images/triggeralert.png" width="800">
+</p>
   * Alert sent to Discord
-
+<p align="center">
+ <img src="images/alertfromdiscord.png" width="800">
+</p>
 ---
 
 ## ✅ Result
