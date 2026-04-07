@@ -186,14 +186,12 @@ Enable Event Log monitoring via Zabbix Agent:
  <p align="center">
   <img src="images/eventlog.png" width="800">
  </p>
-Monitor:
-
-  * Security Log:
+Security Log:
   <p align="center">
 <img src="images/eventviewer.png" width="800">
   </p>
 Filter:
- Event ID: 4625 (Failed Login)
+ Event ID: 4625 (failed Login)
 
 <p align="center">
  <img src="images/4625.png" width="800">
