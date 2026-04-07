@@ -235,6 +235,9 @@ Create action:
 * Result:
 
   * Event ID 4625 generated
+<p align="center">
+ <img src="images/servertest.png" width="800">
+</p>
   * Trigger activated
   * Alert sent to Discord
 
