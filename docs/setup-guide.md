@@ -69,7 +69,7 @@ Setup Information:
  <img src="images/zabbixsetupinformation.png" width="800">
  </p>
 Dashboard:
-<p align="center>
+<p align="center">
  <img src="images/dashboard.png" width="800">
 </p>
 
