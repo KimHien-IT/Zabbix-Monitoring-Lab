@@ -56,13 +56,22 @@ systemctl start zabbix-agent
 
   * httpd / nginx
 
-Access Web UI:
-![setup](docs/images/zabbix setup.png)
-```
-http://192.168.10.10\
-```
-
----
+Access Web UI: "http://192.168.10.10\
+<p align="center">
+  <img src="images/zabbixsetup.png" width="800">
+</p>
+Setup SQL:
+<p align="center">
+ <img src="images/zabbixsqlsetup.png" width="800">
+</p>
+Setup Information:
+<p align="center">
+ <img src="images/zabbixsetupinformation.png" width="800">
+ </p>
+Dashboard:
+<p align="center>
+ <img src="images/dashboard.png" width="800">
+</p>
 
 ## 4. Install Zabbix Agent (Windows)
 
