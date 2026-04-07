@@ -154,12 +154,12 @@ Hostname=WIN SERVER-2022
   **Windows 10:**
  Host: 
  <p align="center">
-  <img src="images/creathost1.png" width="800">
+  <img src="images/createhost1.png" width="800">
   </p>
   
   ** Windows Server 2022:**
  <p align="center">
-  <img src="images/creathost2.png" width="800">
+  <img src="images/createhost2.png" width="800">
   </p>
 
 ---
@@ -254,7 +254,7 @@ Create item:
   * Operation: Send message to Discord
 Create action:
 <p align="center">
- <img src="images/creataction.png" width="800">
+ <img src="images/createaction.png" width="800">
 </p>
 ---
 
