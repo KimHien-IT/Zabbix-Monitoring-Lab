@@ -182,10 +182,6 @@ Create trigger condition:
 <p align="center">
  <img src="images/creatconditionfromtrigger.png" width="800">
 </p>
-Create action:
-<p align="center">
- <img src="images/creataction.png" width="800">
-</p>
 Create item:
 <p align="center">
  <img src="images/creatitem.png" width="800">
@@ -208,10 +204,16 @@ Create item:
 
 * Go to: Administration → Media types
 * Create new Media type:
-
   * Type: Webhook
   * Paste Discord Webhook URL
+<p align="center">
+ <img src="images/mediatype.png" width="800">
+</p>
 
+*Add new Media type for host:
+<p align="center">
+ <img src="images/mediauser.png" width="800">
+</p>
 ---
 
 ### Step 3: Create Action
@@ -221,7 +223,10 @@ Create item:
 
   * Condition: Trigger = Failed Login
   * Operation: Send message to Discord
-
+Create action:
+<p align="center">
+ <img src="images/creataction.png" width="800">
+</p>
 ---
 
 ## 10. Testing
