@@ -160,16 +160,18 @@ On Windows Server 2022:
  <p align="center">
   <img src="images/eventlog.png" width="800">
  </p>
-* Monitor:
+Monitor:
 
   * Security Log:
   <p align="center">
 <img src="images/eventvier.png" width="800">
   </p>
 Filter:
+ Event ID: 4625 (Failed Login)
 
-* Event ID: **4625 (Failed Login)**
-
+<p align="center">
+ <img src="images/4625.png" width="800">
+</p>
 ---
 
 ## 8. Create Trigger
@@ -180,6 +182,7 @@ Create trigger condition:
 * Example:
 
   * If Event ID 4625 appears → Trigger = PROBLEM
+ 
 
 ---
 
