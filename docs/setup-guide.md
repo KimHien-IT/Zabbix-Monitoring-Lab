@@ -28,6 +28,25 @@ Configure IP addresses for internal communication:
 
 Test connectivity using ping between machines.
 
+Centos 9 ping to Windows Server 2022:
+<p align="center">
+ <img src="images/ping2.png" width="800">
+ </p>
+
+ Centos 9 ping to Windows 10:
+<p align="center">
+ <img src="images/ping4.png" width="800">
+ </p>
+
+Window 10 ping to Centos 9 and Windows Server 2022:
+<p align="center">
+ <img src="images/ping1.png" width="800">
+ </p>
+
+ Window Server 2022 ping to Centos 9 and Windows 10:
+<p align="center">
+ <img src="images/ping3.png" width="800">
+ </p>
 ---
 
 ## 3. Install Zabbix Server (CentOS 9)
@@ -104,10 +123,11 @@ Hostname=WIN SERVER-2022
 ## 5. Add Hosts to Zabbix
 
 * Login to Zabbix Web UI
-* Go to: Configuration → Hosts
-* Add:
-
+* Go to: Data collection -> Host -> Creat Host
   * Windows 10
+ <p align="center>
+  <img src=>
+  </p>
   * Windows Server 2022
 
 Assign template:
