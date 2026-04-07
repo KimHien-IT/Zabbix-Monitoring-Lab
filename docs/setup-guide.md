@@ -57,7 +57,7 @@ systemctl start zabbix-agent
   * httpd / nginx
 
 Access Web UI:
-
+![setup](docs/images/zabbix setup.png)
 ```
 http://192.168.10.10\
 ```
