@@ -58,16 +58,18 @@ Window 10 ping to Centos 9 and Windows Server 2022:
 * dnf install zabbix-server-mysql zabbix-web-mysql zabbix-nginx-conf zabbix-sql-scripts zabbix-selinux-policy zabbix-agent 
 
 **Setup database (MariaDB):**
-* mysql-uroot -p
+* mysql -u root -p
 * password
   * mysql> create database zabbix character set utf8mb4 collate utf8mb4_bin;
-  * mysql> create user zabbix-sql@localhost identified by 'sql';
+  * mysql> create user 'zabbix-sql'@localhost identified by 'sql';
   * mysql> grant all privileges on zabbix.* to zabbix-sql@localhost;
   * mysql> set global log_bin_trust_function_creators = 1;
   * mysql> quit; 
-* Configure /etc/zabbix/zabbix_server.conf`
+* Configure /etc/zabbix/zabbix_server.conf
   * DBUser=zabbix-sql
   * DBPassword=sql
+* systemctl restart zabbix-server
+* zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | mysql -uzabbix-sql -p zabbix
     
 **Start services:**
 
@@ -94,12 +96,11 @@ MariaDB:
 * firewall-cmd --reload
   
 **Install SElinux policy**
-* dnf install -y zabbix-selinux-policy
 * setsebool -P zabbix_can_network on
 * setsebool -P httpd_can_connect_zabbix on
 * setsebool -P zabbix_can_network_connect_db on
   
-Access Web UI: "http://192.168.10.10\
+Access Web UI: "http://192.168.10.10
 <p align="center">
   <img src="images/zabbixsetup.png" width="800">
 </p>
@@ -163,7 +164,7 @@ Hostname=WIN SERVER-2022
 
 ---
 
-## 6. Monitoring
+## 6. System Monitoring
 Basic monitoring:
 <p align="center">
  <img src="images/dashboard.png" width="800">
@@ -171,15 +172,14 @@ Basic monitoring:
 
 Custom monitoring:
 <p align="center">
- <img src="images/dashboard.png" width="800">
+ <img src="images/customdashboard.png" width="800">
 </p>
 
-Important value
+Important metrics
 * CPU usage
 * Memory usage
 * Disk usage
 * Network traffic
----
 
 ## 7. Configure Windows Event Log Monitoring
 
@@ -193,7 +193,7 @@ Monitor:
 
   * Security Log:
   <p align="center">
-<img src="images/eventvier.png" width="800">
+<img src="images/eventviewer.png" width="800">
   </p>
 Filter:
  Event ID: 4625 (Failed Login)
@@ -205,15 +205,15 @@ Filter:
 
 ## 8. Create Trigger
 <p align="center">
- <img src="images/creattrigger.png" width="800">
+ <img src="images/createtrigger.png" width="800">
 </p>
 Create trigger condition:
 <p align="center">
- <img src="images/creatconditionfromtrigger.png" width="800">
+ <img src="images/createconditionfromtrigger.png" width="800">
 </p>
 Create item:
 <p align="center">
- <img src="images/creatitem.png" width="800">
+ <img src="images/createitem.png" width="800">
 </p>
 
 ---
