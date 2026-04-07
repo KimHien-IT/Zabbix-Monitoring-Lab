@@ -87,10 +87,6 @@ Setup Information:
 <p align="center">
  <img src="images/zabbixsetupinformation.png" width="800">
  </p>
-Dashboard:
-<p align="center">
- <img src="images/dashboard.png" width="800">
-</p>
 
 ## 4. Install Zabbix Agent (Windows)
 
@@ -124,15 +120,22 @@ Hostname=WIN SERVER-2022
 
 * Login to Zabbix Web UI
 * Go to: Data collection -> Host -> Creat Host
-  * Windows 10
- <p align="center>
-  <img src=>
+  * Host: the name of the client machine.
+  * Templates: a predefined set of monitoring items, triggers, and graphs applied to a host.
+  * Host Group: a logical group of hosts for easier management and monitoring.
+  * Interfaces: defines how the Zabbix server communicates with the host (e.g., Agent, SNMP, JMX, IPMI).
+  * Description: provides additional information or notes about the host.
+  * Monitored by: determines whether the host is monitored directly by the Zabbix server or through a proxy.
+  **Windows 10:**
+ Host: 
+ <p align="center">
+  <img src="images/creathost1.png" width="800">
   </p>
-  * Windows Server 2022
-
-Assign template:
-
-* Template OS Windows
+  
+  ** Windows Server 2022:**
+ <p align="center">
+  <img src="images/creathost2.png" width="800">
+  </p>
 
 ---
 
@@ -144,7 +147,9 @@ Verify metrics:
 * Memory usage
 * Disk usage
 * Network traffic
-
+<p align="center">
+ <img src="images/dashboard.png" width="800">
+</p>
 ---
 
 ## 7. Configure Windows Event Log Monitoring
