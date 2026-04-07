@@ -175,14 +175,21 @@ Filter:
 ---
 
 ## 8. Create Trigger
-
+<p align="center">
+ <img src="images/creattrigger.png" width="800">
+</p>
 Create trigger condition:
-
-* Detect failed login attempt
-* Example:
-
-  * If Event ID 4625 appears → Trigger = PROBLEM
- 
+<p align="center">
+ <img src="images/creatconditionfromtrigger.png" width="800">
+</p>
+Create action:
+<p align="center">
+ <img src="images/creataction.png" width="800">
+</p>
+Create item:
+<p align="center">
+ <img src="images/creatitem.png" width="800">
+</p>
 
 ---
 
