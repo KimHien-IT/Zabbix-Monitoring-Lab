@@ -4,7 +4,7 @@
 
 * VMware Workstation
 * 1 VM: CentOS Stream 9 (Zabbix Server)
-* 2 VM:
+* 2 VMs:
 
   * Windows 10
   * Windows Server 2022
@@ -28,22 +28,22 @@ Configure IP addresses for internal communication:
 
 Test connectivity using ping between machines.
 
-Centos 9 ping to Windows Server 2022:
+CentOS 9 ping to Windows Server 2022:
 <p align="center">
  <img src="images/ping2.png" width="800">
  </p>
 
- Centos 9 ping to Windows 10:
+ CentOS 9 ping to Windows 10:
 <p align="center">
  <img src="images/ping4.png" width="800">
  </p>
 
-Window 10 ping to Centos 9 and Windows Server 2022:
+Window 10 ping to CentOS 9 and Windows Server 2022:
 <p align="center">
  <img src="images/ping1.png" width="800">
  </p>
 
- Window Server 2022 ping to Centos 9 and Windows 10:
+ Window Server 2022 ping to CentOS 9 and Windows 10:
 <p align="center">
  <img src="images/ping3.png" width="800">
  </p>
@@ -57,12 +57,12 @@ Window 10 ping to Centos 9 and Windows Server 2022:
 **Install packages:**
 * dnf install zabbix-server-mysql zabbix-web-mysql zabbix-nginx-conf zabbix-sql-scripts zabbix-selinux-policy zabbix-agent 
 
-**Setup database (MariaDB):**
+**Setup database (MySQL/MariaDB):**
 * mysql -u root -p
 * password
   * mysql> create database zabbix character set utf8mb4 collate utf8mb4_bin;
-  * mysql> create user 'zabbix-sql'@localhost identified by 'sql';
-  * mysql> grant all privileges on zabbix.* to zabbix-sql@localhost;
+  * mysql> create user 'zabbix-sql'@'localhost' identified by 'sql';
+  * mysql> grant all privileges on zabbix.* to 'zabbix-sql'@'localhost';
   * mysql> set global log_bin_trust_function_creators = 1;
   * mysql> quit; 
 * Configure /etc/zabbix/zabbix_server.conf
@@ -116,8 +116,7 @@ Setup Information:
 ## 4. Install Zabbix Agent (Windows)
 
 * Download Zabbix Agent for Windows
-* Install on:  https://cdn.zabbix.com/zabbix/binaries/stable/7.4/7.4.8/zabbix_agent-7.4.8-windows-amd64-openssl.msi
-
+* Install on:   https://cdn.zabbix.com/zabbix/binaries/stable/7.0/7.0.24/zabbix_agent-7.0.24-windows-amd64-openssl.msi
 **Windows 10**
 
 * Edit config file:
@@ -152,7 +151,6 @@ Hostname=WIN SERVER-2022
   * Description: provides additional information or notes about the host.
   * Monitored by: determines whether the host is monitored directly by the Zabbix server or through a proxy.
   **Windows 10:**
- Host: 
  <p align="center">
   <img src="images/createhost1.png" width="800">
   </p>
@@ -161,7 +159,6 @@ Hostname=WIN SERVER-2022
  <p align="center">
   <img src="images/createhost2.png" width="800">
   </p>
-
 ---
 
 ## 6. System Monitoring
@@ -175,7 +172,7 @@ Custom monitoring:
  <img src="images/customdashboard.png" width="800">
 </p>
 
-Important metrics
+Important metrics:
 * CPU usage
 * Memory usage
 * Disk usage
@@ -185,7 +182,7 @@ Important metrics
 
 On Windows Server 2022:
 
-* Enable Event Log monitoring via Zabbix Agent
+Enable Event Log monitoring via Zabbix Agent:
  <p align="center">
   <img src="images/eventlog.png" width="800">
  </p>
@@ -203,11 +200,11 @@ Filter:
 </p>
 ---
 
-## 8. Create Trigger
+## 8. Create Triggers
 <p align="center">
  <img src="images/createtrigger.png" width="800">
 </p>
-Create trigger condition:
+Create trigger conditions:
 <p align="center">
  <img src="images/createconditionfromtrigger.png" width="800">
 </p>
@@ -232,14 +229,14 @@ Create item:
 ### Step 2: Configure in Zabbix
 
 * Go to: Administration → Media types
-* Create new Media type:
+* Create new media type:
   * Type: Webhook
   * Paste Discord Webhook URL
 <p align="center">
  <img src="images/mediatype.png" width="800">
 </p>
 
-*Add new Media type for host:
+* Add the media type to the host:
 <p align="center">
  <img src="images/mediauser.png" width="800">
 </p>
@@ -250,7 +247,7 @@ Create item:
 * Go to: Configuration → Actions
 * Create trigger action:
 
-  * Condition: Trigger = Failed Login
+  * Condition: Trigger = failed Login
   * Operation: Send message to Discord
 Create action:
 <p align="center">
@@ -260,10 +257,10 @@ Create action:
 
 ## 10. Testing
 
-* Perform failed login on Windows Server 2022
-* Result:
+* Perform a failed login attempt on Windows Server 2022
+* Result: Security events (failed logins) are detected
 
-  * Event ID 4625 generated
+  * Event ID: 4625 generated
 <p align="center">
  <img src="images/servertest.png" width="800">
 </p>
@@ -289,4 +286,4 @@ Create action:
 
 * This lab simulates enterprise monitoring
 * Network is implemented using VMware NAT + Host-only
-* Security monitoring focuses on basic intrusion detection
+* Security monitoring focuses on basic intrusion detection scenarios
