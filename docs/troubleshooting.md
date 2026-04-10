@@ -8,14 +8,14 @@ During the development of this Zabbix Monitoring Lab, several issues were identi
    <p align="center">
    <img src="images/error1.png" width=800>
    </p>
-   Cause: The Zabbix Agent service was either stopped, or the firewall (iptables/firewalld) was blocking port 10050.
+   
+   Cause: The "ListenPort" parameter in "zabbix_agentd.conf" was not explicitly defined, causing service binding issues. <br>
+   
+   Resolution: Uncommented and set "ListenPort=10050" in the configuration file, then restarted the Zabbix Agent service.
 
-   Solution: Restarted the Zabbix Agent service using systemctl restart zabbix-agent and allowed port 10050 through the firewall.
-  
 ## 2. Zabbix Frontend: "Permission denied" to Zabbix Server
 
    Issue: A red error box appeared stating "Connection to Zabbix server 'localhost:10051' failed. Permission denied."
-    
    <p align="center">
    <img src="images/error2.png" width=800>
    </p>
@@ -23,7 +23,6 @@ During the development of this Zabbix Monitoring Lab, several issues were identi
    Cause: SELinux (Security-Enhanced Linux) was blocking the Web Server (Apache/Nginx) from connecting to the Zabbix Server socket.
 
    Solution: Executed the command setsebool -P httpd_can_connect_zabbix on to allow the connection through SELinux.
-    
    <p align="center">
    <img src="images/errorfix2.png" width=800>
    </p>
@@ -34,8 +33,14 @@ During the development of this Zabbix Monitoring Lab, several issues were identi
 ## 3. Brute Force Trigger: Alert not clearing (Sticky Alerts)
 
    Issue: The first intrusion test triggered an alert, but subsequent tests did not send new notifications, and the old alert remained in "PROBLEM" status.
+   <p align="center">
+   <img src="images/error3.png" width=800>
+   </p>
 
    Cause: The "PROBLEM event generation mode" was set to Single, meaning Zabbix won't create a new alert if the old one is still open.
 
    Solution: * Changed "PROBLEM event generation mode" to Multiple if continuous alerts are needed.
+    <p align="center">
+   <img src="images/error3fix.png" width=800>
+   </p>
 
