@@ -1,7 +1,3 @@
-# ==============================
-Zabbix Agent Configuration
-# ==============================
-
 # Server IP (Zabbix Server)
 Server=192.168.10.10
 
