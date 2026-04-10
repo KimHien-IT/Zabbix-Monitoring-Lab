@@ -44,7 +44,7 @@ Zabbix Agent collects Windows Event Logs and sends them to the Zabbix Server.
 * Monitored Log: Security Log
 * Event ID: 4625 (failed login)
 <p align="center">
- <img src="images/problem1.png" width=800>
+ <img src="images/problem.png" width=800>
 </p>
 
 Zabbix processes these logs and triggers an alert based on predefined conditions.
@@ -57,7 +57,9 @@ Trigger condition:
 
 * Detect failed login events
 * Alert when suspicious activity is observed
-
+<p align="center">
+ <img src="images/problem1.png" width=800>
+</p>
 Result:
 
 * Trigger status changes to PROBLEM
