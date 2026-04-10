@@ -2,12 +2,18 @@
 # Zabbix Agent Configuration
 # ==============================
 
-# Agent IP (WINDOW SERVER 2022)
-Guest=192.168.10.10
+# Server IP (Zabbix Server)
+Server=192.168.10.10
+
+# Server active
+ServerActive=192.168.10.10
 
 # Hostname 
-Hostname=WIN SERVER-2022
+Hostname=WIN10
 
 # Log file
 LogFile=C:\Program Files\Zabbix Agent\zabbix_agentd.log
+
+# Timeout
+Timeout=3
 
