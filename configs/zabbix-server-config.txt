@@ -1,9 +1,11 @@
-Connect Database
-# DBHost=localhost
-# DBName=zabbix
-# DBUser=zabbix-sql
-# DBPassword=sql
+# Database Configuration
+DBHost=localhost
+DBName=zabbix
+DBUser=zabbix-sql
+DBPassword=sql
 
-# LogFile=/var/log/zabbix/zabbix_server.log
+# Log File Path
+LogFile=/var/log/zabbix/zabbix_server.log
 
-# Timeout=4
+# Connection Timeout
+Timeout=4
