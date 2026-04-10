@@ -1,5 +1,5 @@
 # ==============================
-# Zabbix Agent Configuration
+Zabbix Agent Configuration
 # ==============================
 
 # Server IP (Zabbix Server)
