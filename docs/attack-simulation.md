@@ -1,12 +1,12 @@
-# 🔥 Attack Simulation – Zabbix Security Monitoring Lab
+# Attack Simulation – Zabbix Security Monitoring Lab
 
-## 🎯 Objective
+## Objective
 
 This simulation aims to test the ability of the monitoring system to detect unauthorized access attempts on Windows Server 2022.
 
 ---
 
-## 🛠️ Attack Scenario
+## Attack Scenario
 
 A brute-force login attack is simulated by repeatedly attempting to log in with incorrect credentials on the target system.
 
@@ -16,7 +16,7 @@ A brute-force login attack is simulated by repeatedly attempting to log in with 
 
 ---
 
-## 🚨 Attack Execution
+## Attack Execution
 
 Steps performed:
 
@@ -37,7 +37,7 @@ Expected behavior:
 
 ---
 
-## 📊 Detection in Zabbix
+## Detection in Zabbix
 
 Zabbix Agent collects Windows Event Logs and sends them to the Zabbix Server.
 
@@ -51,7 +51,7 @@ Zabbix processes these logs and triggers an alert based on predefined conditions
 
 ---
 
-## ⚠️ Trigger Behavior
+## Trigger Behavior
 
 Trigger condition:
 
@@ -67,7 +67,7 @@ Result:
 
 ---
 
-## 📢 Alerting
+## Alerting
 
 Once the trigger is activated:
 
@@ -83,7 +83,7 @@ Once the trigger is activated:
 
 ---
 
-## 🧪 Result
+## Result
 
 The system successfully detected brute-force login attempts and generated real-time alerts.
 
@@ -95,7 +95,7 @@ Evidence:
 
 ---
 
-## 🧠 Analysis
+## Analysis
 
 The repeated failed login attempts indicate a potential brute-force attack.
 
@@ -106,7 +106,7 @@ This demonstrates that:
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 The attack simulation confirms that the Zabbix monitoring system is capable of detecting unauthorized access attempts and notifying administrators effectively.
 
