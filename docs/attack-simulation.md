@@ -24,10 +24,16 @@ Steps performed:
 2. Enter incorrect username/password multiple times
 3. Repeat the login attempts continuously
 
+<p align="center">
+ <img src="images/servertest1.png" width=800>
+</p>
 Expected behavior:
 
 * Multiple failed login attempts are generated
 * Event ID 4625 is logged in Windows Event Viewer
+<p align="center">
+ <img src="images/eventlog1.png" width=800>
+</p>
 
 ---
 
@@ -37,6 +43,9 @@ Zabbix Agent collects Windows Event Logs and sends them to the Zabbix Server.
 
 * Monitored Log: Security Log
 * Event ID: 4625 (failed login)
+<p align="center">
+ <img src="images/problem1.png" width=800>
+</p>
 
 Zabbix processes these logs and triggers an alert based on predefined conditions.
 
@@ -66,6 +75,9 @@ Once the trigger is activated:
   * Host name
   * Event description
   * Timestamp
+<p align="center">
+ <img src="images/notidiscord1.png" width=800>
+</p>
 
 ---
 
