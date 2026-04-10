@@ -1,0 +1,18 @@
+# ==============================
+# Zabbix Agent Configuration
+# ==============================
+
+# Server IP (Zabbix Server)
+Server=192.168.10.10
+
+# Server active
+ServerActive=192.168.10.10
+
+# Hostname 
+Hostname=Zabbix Server
+
+# Log file
+LogFile=/var/log/zabbix/zabbix_server.log
+
+# Timeout
+Timeout=3
